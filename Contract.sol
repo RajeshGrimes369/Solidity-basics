@@ -7,19 +7,19 @@ contract pay
       string public own;
       mapping(address => uint) public sentamo;
 
-      constructor{
+      constructor(){
             own = msg.sender;
       }
 
-      function payamo()people payable{
+      function payamo()public payable{
             sentamo(msg.sender) += msg.value;
       }
-      function payinfo() people view returns(uint){
+      function payinfo() public view returns(uint){
             return sentamo(msg.sender);
       }
-      function withdeaw(uint amount) people{
-            require(sentamo[msg.sender] => amount "money not enogsh");
-            payable(msg.sender).transfer(amount));
+      function withdeaw(uint amount) public{
+            require(sentamo[msg.sender] => amount ,"money not enogsh");
+            payable(msg.sender).transfer(amount);
       }
       function payall() public {
             require(msg.sender == own);
